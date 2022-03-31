@@ -14,6 +14,8 @@ use App\Http\Controllers\UserController;
 
 use App\Http\Controllers\Zadanie;
 
+use App\Http\Controllers\CategoryController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -76,6 +78,21 @@ Route::post('/users/login', [UserController::class, 'store_login'])->name('users
 
 
 Route::get('/about_us', [HomeController::class, 'aboutUs'])->name('home.aboutUs');
+
+
+Route::get('/category', [CategoryController::class, 'index'])->name('category.index');
+
+Route::get('/category/show/{category_id}', [CategoryController::class, 'show'])->name('category.show');
+
+Route::get('/category/create', [CategoryController::class, 'create'])->name('category.get.create');
+
+Route::post('/category', [CategoryController::class, 'store'])->name('category.post.create');
+
+Route::get('/category/update/{category_id}', [CategoryController::class, 'update'])->name('category.get.update');
+
+Route::post('/category/update/{category_id}', [CategoryController::class, 'restore'])->name('category.post.update');
+
+Route::get('/category/delete/{category_id}', [CategoryController::class, 'delete'])->name('category.delete');
 
 
 Route::get('/zadanie/3', [Zadanie::class, 'zadacha3']);

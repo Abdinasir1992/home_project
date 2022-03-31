@@ -16,16 +16,19 @@
             /* float:left; */
         }
         .category ul li{
-            margin-right: 60px;
+            margin-right: 40px;
         }
         .category {
             margin-top: 50px;
         }
         footer ul li {
-            margin-right: 60px;
+            margin-right: 40px;
         }
         header, footer {
             text-align: center;
+        }
+        .container div {
+            display: inline-block;
         }
     </style>
 </head>
@@ -40,10 +43,10 @@
         <div class="category">
             <ul>
                 <li><a href=" {{route('posts.index')}} " alt="">Все новости</a></li>
+                <li><a href=" {{route('category.index')}} " alt="">Категории новостей</a></li>
                 <li>Общество</li>
                 <li>Политика</li>
                 <li>Культура</li>
-                <li>Наука и техника</li>
                 <li>Спорт</li>
                 <li>
                     <a href=" {{ route('users.get.create') }} ">Вход/Регистрация</a>
@@ -54,7 +57,11 @@
     @show
 
     <div class="container">
-        @yield('content')
+        
+        <div>
+            @yield('content')
+        </div>
+        
     </div>
 
     @section('footer')
