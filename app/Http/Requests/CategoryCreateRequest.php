@@ -27,4 +27,11 @@ class CategoryCreateRequest extends FormRequest
             'name' => 'required'
         ];
     }
+
+    public function messages()
+    {
+        return[
+            'name.required' => "Необходимо указать название"
+        ];
+    }
 }

@@ -27,9 +27,9 @@
         header, footer {
             text-align: center;
         }
-        .container div {
+        /* .container div {
             display: inline-block;
-        }
+        } */
     </style>
 </head>
 <body>
