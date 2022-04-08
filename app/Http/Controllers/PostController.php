@@ -14,7 +14,8 @@ class PostController extends Controller
     {
         // $posts = DB::select('select * from posts');
         // $posts = DB::table('posts')->get();
-        $posts = Post::get();
+        $posts = Post::with('category')->get();
+        // dd($posts);
         return view('posts.index', ['posts' => $posts]);
     }
 
@@ -32,7 +33,7 @@ class PostController extends Controller
         }
         */
 
-        $post = Post::findOrFail($post_id);
+        $post = Post::where('id', $post_id)->with('category')->first();
         return view('posts.show', ['post' => $post]);
     }
 
@@ -45,6 +46,7 @@ class PostController extends Controller
     {
         $title = $request->post('title');
         $text = $request->post('text');
+        $category_id = $request->post('category_id');
 
         // DB::insert('insert into posts (title, text) value (:title, :text)', ['title' => $title, 'text' => $text]);
 
@@ -76,7 +78,7 @@ class PostController extends Controller
             throw new ModelNotFoundException();
         }
         */
-        $post = Post::findOrFail($post_id);
+        $post = Post::where('id', $post_id)->with('category')->first();
         return view('posts.update', ['post' => $post, 'post_id' => $post_id]);
     }
 
@@ -84,6 +86,7 @@ class PostController extends Controller
     {
         $title = $request->post('title');
         $text = $request->post('text');
+        $category_id = $request->post('category_id');
 
         // DB::insert('update posts set title = :title, text = :text where id = :id', ['title' => $title, 'text' => $text, 'id' => $post_id]);
         
@@ -97,7 +100,7 @@ class PostController extends Controller
         $post->save();
         */
 
-        $post = $request->all('title', 'text');
+        $post = $request->all('title', 'text', 'category_id');
         Post::where('id', $post_id)->update($post);
 
         return redirect()->route('posts.index');

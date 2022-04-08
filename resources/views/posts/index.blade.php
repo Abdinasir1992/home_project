@@ -15,6 +15,7 @@
                 
             </div>
             <div>{{ $post->text }}</div>
+            <div>Категория новости: {{ $post->category->name }}</div>
         </div>
         @endforeach
     </div>

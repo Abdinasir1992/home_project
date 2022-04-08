@@ -25,6 +25,12 @@
                 {{ $post->text }}
             </textarea>
         </div>
+        <div>
+            <select name="category_id" id="">
+                <option value="1">Общество</option>
+                <option value="2">Политика</option>
+            </select>
+        </div>
         <button type="submit">Редактировать</button>
     </form>
 </div>

@@ -24,8 +24,16 @@
             <textarea type="text" name="text" placeholder="Текст новости"></textarea>
         </div>
         <div>
+            <select name="category_id" id="">
+                <option selected disabled>Выберите категорию</option>
+                <option value="1">Общество</option>
+                <option value="2">Политика</option>
+            </select>
+        </div>
+        <div>
             <button type="submit">Добавить новость</button>
         </div>
+       
     </form>
 </div>
 @endsection

@@ -9,4 +9,9 @@ class Category extends Model
 {
     // protected $fillable = ['name'];
     protected $guarded = [];
+
+    public function post()
+    {
+        return $this->hasMany(Post::class); // описано отношение с модель-классом User для поиска Юзера через номер телефона
+    }
 }

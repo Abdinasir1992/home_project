@@ -16,7 +16,15 @@ class CategoryController extends Controller
         $category = Category::get();
         return view('category.index', ['category' => $category ]);
     }
+/*
+    public function select()
+    {   
+        // $category = DB::table('category')->get();
 
+        $categories = Category::get();
+        return view('posts.create', ['categories' => $categories ]);
+    }
+*/
     public function show($category_id)
     {   
         /*
@@ -27,6 +35,8 @@ class CategoryController extends Controller
         }
         */
         $category = Category::findOrFail($category_id);
+        // $category = Category::where('id', $category_id)->with('post')->get();
+        // dd($category);
         return view('category.show', ['category' => $category, 'category_id' => $category_id ]);
     }
 

@@ -25,7 +25,8 @@ class PostCreateRequest extends FormRequest
     {
         return [
             'title' => 'required',
-            'text' => 'required'
+            'text' => 'required',
+            'category_id' =>'required'
         ];
     }
 
@@ -33,7 +34,8 @@ class PostCreateRequest extends FormRequest
     {
         return[
             'title.required' => "Необходимо указать заголовок",
-            'text.required' => "Необходимо написать описание"
+            'text.required' => "Необходимо написать описание",
+            'category_id.required' => "Выберите категорию"
         ];
     }
 }
