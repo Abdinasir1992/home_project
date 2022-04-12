@@ -8,6 +8,14 @@
         <div>
             <a href=" {{ route('posts.get.create') }} ">Добавить новость</a>
         </div>
+        <div>
+            <span class="message">
+                @if(session()->has('message'))
+                    {{ session()->get('message') }}
+                @endif
+            </span>
+            
+        </div>
         @foreach($posts as $post)
         <div>
             <div>

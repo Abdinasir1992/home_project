@@ -8,6 +8,13 @@
             <a href=" {{ route('category.get.create') }} ">Создать категорию новости</a>
         </div>
         <div>
+            <span class="message">
+                @if(session()->has('message'))
+                    {{ session()->get('message') }}
+                @endif
+            </span>
+        </div>
+        <div>
             <ul>
             @foreach ($category as $cat_name)
                 <li> 

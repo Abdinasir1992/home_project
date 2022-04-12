@@ -27,6 +27,10 @@
         header, footer {
             text-align: center;
         }
+
+        .message {
+            background-color: green;
+        }
         /* .container div {
             display: inline-block;
         } */
@@ -73,6 +77,9 @@
                 </li>
                 <li>Контакты</li>
                 <li>Партнеры</li>
+                <li>
+                    <a href="{{ route('faq.index') }}">FAQ</a>
+                </li>
                 <li>Архив новостей</li>
             </ul>
         </div>

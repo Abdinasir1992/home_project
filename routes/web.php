@@ -55,9 +55,11 @@ Route::get('/products/edit', [ProductController::class, 'edit']);
 Route::get('/products/delete', [ProductController::class, 'delete']);
 
 
-Route::get('/faq', [FaqController::class, 'index']);
+Route::get('/faq', [FaqController::class, 'index'])->name('faq.index');
 
-Route::get('/faq/create', [FaqController::class, 'create']);
+Route::get('/faq/create', [FaqController::class, 'create'])->name('faq.get.create');
+
+Route::post('/faq/create', [FaqController::class, 'store'])->name('faq.post.create');
 
 Route::get('/faq/edit', [FaqController::class, 'edit']);
 

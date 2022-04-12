@@ -62,6 +62,7 @@ class PostController extends Controller
         //второй метод:
         $post = $request->all();
         Post::create($post);
+        session()->flash('message', 'Новость добавлена');
         return redirect()->route('posts.index');
     }
 
@@ -102,7 +103,7 @@ class PostController extends Controller
 
         $post = $request->all('title', 'text', 'category_id');
         Post::where('id', $post_id)->update($post);
-
+        session()->flash('message', 'Новость изменена');
         return redirect()->route('posts.index');
     }
 
@@ -118,7 +119,7 @@ class PostController extends Controller
         //2-й способ:
         $post = Post::findOrFail($post_id);
         $post->delete();
-
+        session()->flash('message', 'Новость удалена');
         return redirect()->route('posts.index');
     }
     

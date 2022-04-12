@@ -61,6 +61,7 @@ class CategoryController extends Controller
         //2-й метод:
         $category = $request->all();
         Category::create($category);
+        session()->flash('message', 'категория новости создана');
         return redirect()->route('category.index');
     }
 
@@ -90,6 +91,7 @@ class CategoryController extends Controller
         */
         $category = $request->all('name');
         Category::where('id', $category_id)->update($category);
+        session()->flash('message', 'Категория новости изменена');
         return redirect()->route('category.index');
     }
 
@@ -101,6 +103,7 @@ class CategoryController extends Controller
         $category = Category::findOrFail($category_id);
         $category->delete();*/
         Category::destroy($category_id);
+        session()->flash('message', 'Категория новости удалена');
         return redirect()->route('category.index');
     }
 }
