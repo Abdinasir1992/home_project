@@ -61,9 +61,11 @@ Route::get('/faq/create', [FaqController::class, 'create'])->name('faq.get.creat
 
 Route::post('/faq/create', [FaqController::class, 'store'])->name('faq.post.create');
 
-Route::get('/faq/edit', [FaqController::class, 'edit']);
+Route::get('/faq/edit/{faq_id}', [FaqController::class, 'edit'])->name('faq.edit');
 
-Route::get('/faq/delete', [FaqController::class, 'delete']);
+Route::post('/faq/edit/{faq_id}', [FaqController::class, 'postEdit'])->name('faq.post.edit');
+
+Route::get('/faq/delete/{faq_id}', [FaqController::class, 'delete'])->name('faq.delete');
 
 
 Route::get('/users/login', [UserController::class, 'login'])->name('users.get.login');

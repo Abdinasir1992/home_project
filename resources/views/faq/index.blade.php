@@ -16,6 +16,12 @@
         <div>
             <span>{{ $faq->answer }}</span>
         </div>
+        <span>
+            <a href=" {{ route('faq.edit', ['faq_id' => $faq->id]) }} ">Изменить</a>
+        </span>
+        <span>
+            <a href=" {{ route('faq.delete', ['faq_id' => $faq->id]) }} ">Удалить</a>
+        </span>
         <hr>
         @endforeach
     </div>

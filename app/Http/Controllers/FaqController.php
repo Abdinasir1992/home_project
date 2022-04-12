@@ -27,17 +27,31 @@ class FaqController
         $faq = $request->all();
         Faq::create($faq);
 
-
+        return redirect()->route('faq.index');
     }
 
-    public function edit()
+    public function edit(int $faq_id)
     {
-        echo "Страница изменения FAQ";
+        $faq = Faq::findOrFail($faq_id);
+        return view('faq.edit', ['faq' => $faq, 'faq_id' => $faq_id]);
     }
 
-    public function delete()
+    public function postEdit(FaqCreateRequest $request, int $faq_id)
     {
-        echo "Страница удаления FAQ";
+        $question = $request->post('question');
+        $answer = $request->post('answer');
+
+        $faq = $request->all('question', 'answer');
+        Faq::where('id', $faq_id)->update($faq);
+        session()->flash('message', 'FAQ изменен');
+        return redirect()->route('faq.index');
+    }
+
+    public function delete(int $faq_id)
+    {
+        Faq::destroy($faq_id);
+        session('message', 'Удалено');
+        return redirect()->route('faq.index');
     }
 }
 
